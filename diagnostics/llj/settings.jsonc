@@ -15,24 +15,30 @@
 				"xarray",
 				"netCDF4",
 				"cartopy",
-				"pyllj"
-				"dask"
-			]
+				"pyllj",
+				"xarray",
+                "intake", 
+                "yaml",
+                "sys",
+                "os",
+                "datetime", 
+                "netCDF4",
+                "tqdm", 
+                "cartopy", 
+                "earthaccess",
+                "cdsapi"
+                ]
 		},
-	 	"pod_env_vars" : {
-        		"area_file_path": "/nbhome/[insert username here]/mdtf/atmos.static.nc",
-        		"area_var_name": "area"
-    		}
 	},
 	"dimensions": {
 		"lat": {
-                 "standard_name": "latitude",
-                 "units": "degrees_north",
+                 "standard_name": "North latitude array of grid",
+                 "units": "degrees",
                  "axis": "Y"
                },
         "lon": {
-                 "standard_name": "longitude",
-                 "units": "degrees_east",
+                 "standard_name": "East longitude array of grid",
+                 "units": "degrees",
                  "axis": "X"
                 },
 		"time": {
@@ -40,16 +46,16 @@
 		        }
 	},
 	"varlist": {
-	    "areacella": {
-			"standard_name": "cell_area",
+	    "ucomp": {
+			"standard_name": "zonal wind",
 			"dimensions": ["lat", "lon"],
 			"realm": "atmos",
 			"units": "m2",
 			"modifier" : "atmos_realm",
 			"requirement": "optional"
 		},
-		"tas": {
-			"standard_name": "air_temperature",
+		"vcomp": {
+			"standard_name": "???",
 			"frequency": "mon",
 			"dimensions": ["time", "lat", "lon"],
 			"realm": "atmos",
@@ -57,35 +63,27 @@
 			"units": "K",
 			"requirement": "required"
 		},
-		"rsdt": {
-			"standard_name": "toa_incoming_shortwave_flux",
+		"zg": {
+			"standard_name": "????",
 			"realm": "atmos",
 			"frequency": "mon",
 			"units": "W m-2",
 			"dimensions": ["time", "lat", "lon"],
 			"requirement": "required"
 		},
-		"rsds": {
-			"standard_name": "surface_downwelling_shortwave_flux_in_air",
+		"sphum": {
+			"standard_name": "????",
 			"realm": "atmos",
 			"frequency": "mon",
 			"units": "W m-2",
 			"dimensions": ["time", "lat", "lon"],
 			"requirement": "required"
 		},
-		"rsut": {
-			"standard_name": "toa_outgoing_shortwave_flux",
+		"ps": {
+			"standard_name": "???",
 			"realm": "atmos",
 			"frequency": "mon",
 		    "units": "W m-2",
-			"dimensions": ["time", "lat", "lon"],
-			"requirement": "required"
-		},
-		"rsus": {
-			"standard_name": "surface_upwelling_shortwave_flux_in_air",
-			"realm": "atmos",
-			"frequency": "mon",
-			"units": "W m-2",
 			"dimensions": ["time", "lat", "lon"],
 			"requirement": "required"
 		}
