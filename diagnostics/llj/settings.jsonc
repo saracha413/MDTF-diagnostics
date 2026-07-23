@@ -48,43 +48,57 @@
 	"varlist": {
 	    "ucomp": {
 			"standard_name": "zonal wind",
-			"dimensions": ["lat", "lon"],
-			"realm": "atmos",
-			"units": "m2",
-			"modifier" : "atmos_realm",
-			"requirement": "optional"
+			"dimensions": ["time", "pfull", "grid_yt", "grid_xt"],
+			"valid_range": [-330.0, 330.0],
+			"units": "m/sec",
+			"cell_methods" : "time: mean",
+			"_FillValue": -1.e+10f,
+            "missing_value": -1.e+10f, 
+            "time_avg_info": ["average_T1",average_T2","average_DT"],
+            "requirement": "required"
+
 		},
 		"vcomp": {
-			"standard_name": "???",
-			"frequency": "mon",
-			"dimensions": ["time", "lat", "lon"],
-			"realm": "atmos",
-			"modifier": "atmos_height",
-			"units": "K",
-			"requirement": "required"
+			"standard_name": "meridional wind",
+			"dimensions": ["time", "pfull", "grid_yt", "grid_xt"],
+			"valid_range": [-330.0, 330.0],
+			"units": "m/sec",
+			"cell_methods" : "time: mean",
+			"_FillValue": -1.e+10f,
+            "missing_value": -1.e+10f, 
+            "time_avg_info": ["average_T1",average_T2","average_DT"],
+            "requirement": "required"
 		},
 		"zg": {
-			"standard_name": "????",
-			"realm": "atmos",
-			"frequency": "mon",
-			"units": "W m-2",
-			"dimensions": ["time", "lat", "lon"],
+			"standard_name": "geopotential_height",
+            "long_name": "Geopotential Height",
+			"units": "m",
+			"dimensions": ["time", "levhalf", "lat", "lon"],
+			"_FillValue": -1.e+20f,
+            "missing_value": -1.e+20f, 
+    		"cell_methods": "time: point",
+    		"cell_measures": "area: area",
+    		"interp_method": "conserve_order1",
 			"requirement": "required"
 		},
 		"sphum": {
-			"standard_name": "????",
-			"realm": "atmos",
-			"frequency": "mon",
-			"units": "W m-2",
-			"dimensions": ["time", "lat", "lon"],
+			"standard_name": "specific humidity",
+            "dimensions": ["time", "pfull", "grid_yt", "grid_xt"],
+			"_FillValue": -1.e+10f,
+            "missing_value": -1.e+10f, 
+            "units": "kg/kg",
+            "cell_methods": "time: mean",
+            "time_avg_info": ["average_T1",average_T2","average_DT"],
 			"requirement": "required"
 		},
 		"ps": {
-			"standard_name": "???",
-			"realm": "atmos",
-			"frequency": "mon",
-		    "units": "W m-2",
-			"dimensions": ["time", "lat", "lon"],
+			"standard_name": "surface pressure",
+            "dimensions": ["time", grid_yt", "grid_xt"],
+			"_FillValue": -1.e+10f,
+            "missing_value": -1.e+10f, 
+            "units": "Pa", 
+            "cell_methods": "time: mean", 
+            "time_avg_info": ["average_T1",average_T2","average_DT"],
 			"requirement": "required"
 		}
 	}
