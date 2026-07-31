@@ -3,7 +3,7 @@
 // 
 {
 	"settings": {
-		"driver": "llj.py",
+		"driver": "mdtf_llj_pod.ipynb",
 		"long_name": "Great Plains Low Level Jet Diagnostics",
 		"convention": "cmip",
 		"description": "Great Plains Low Level Jet Diagnostics",
